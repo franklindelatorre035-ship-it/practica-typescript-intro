@@ -1,23 +1,18 @@
-function sumar():void {
-    let num1:number=(document.getElementById("num1") as HTMLInputElement).valueAsNumber;
-    let num2:string=(document.getElementById("num2") as HTMLInputElement).value;
-        let resultado:number= (num1) + parseFloat(num2);
-        (document.getElementById('resultado') as HTMLElement).innerHTML=resultado.toString();
-    } 
-
-
-
+function sumar() {
+    var num1 = document.getElementById("num1").valueAsNumber;
+    var num2 = document.getElementById("num2").value;
+    var resultado = (num1) + parseFloat(num2);
+    document.getElementById('resultado').innerHTML = resultado.toString();
+}
 //PRACTICA GENERAL DE LA SINTAXIS
-
 /*let num1:string|number|number[]=[1,2,4];
 //let lista[]:string|boolean|number|string[]=['hola',7,'ts',8,'ast',9];
 let num2:number=10;
 num1.forEach(e => {
     let suma = e + num2;
-    console.log(" numero 1: " + e + " numero 2: " + num1 + " = " + num2 ); 
+    console.log(" numero 1: " + e + " numero 2: " + num1 + " = " + num2 );
 });
 */
-
 /*let lista: number[] = [1,2,3,4,5,6,7,8,9,10];
 let multiplicacion = 1;
 let listaPrimos: number[] = [];
@@ -33,7 +28,7 @@ function esPrimo(numero: number): boolean {
   return true;
 }
 
-lista.forEach(e => { 
+lista.forEach(e => {
   multiplicacion = multiplicacion * e;
 
   if (esPrimo(e)) {
@@ -46,4 +41,4 @@ lista.forEach(e => {
 
 console.log("La multiplicación es: " + multiplicacion);
 console.log("Sublista: " + listaPrimos);
-*/
+*/ 
