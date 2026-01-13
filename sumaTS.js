@@ -4,8 +4,11 @@
         let resultado:number= (num1) + parseFloat(num2);
         (document.getElementById('resultado') as HTMLElement).innerHTML=resultado.toString();
     }
-*/
+/*
+
+
 //PRACTICA GENERAL DE LA SINTAXIS
+
 /*let num1:string|number|number[]=[1,2,4];
 //let lista[]:string|boolean|number|string[]=['hola',7,'ts',8,'ast',9];
 let num2:number=10;

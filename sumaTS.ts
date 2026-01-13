@@ -4,7 +4,7 @@
         let resultado:number= (num1) + parseFloat(num2);
         (document.getElementById('resultado') as HTMLElement).innerHTML=resultado.toString();
     } 
-*/
+/*
 
 
 //PRACTICA GENERAL DE LA SINTAXIS
