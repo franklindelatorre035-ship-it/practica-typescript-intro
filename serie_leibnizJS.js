@@ -4,7 +4,7 @@ function calcularPi() {
 
     for (let i = 0; i <= n; i++) {
         let termino = Math.pow(-1, i) / (2 * i + 1);
-        acumulador += termino;
+        acumulador = acumulador + termino;
     }
 
     let pi = acumulador * 4;

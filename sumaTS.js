@@ -1,9 +1,10 @@
-function sumar() {
-    var num1 = document.getElementById("num1").valueAsNumber;
-    var num2 = document.getElementById("num2").value;
-    var resultado = (num1) + parseFloat(num2);
-    document.getElementById('resultado').innerHTML = resultado.toString();
-}
+/*function sumar():void {
+    let num1:number=(document.getElementById("num1") as HTMLInputElement).valueAsNumber;
+    let num2:string=(document.getElementById("num2") as HTMLInputElement).value;
+        let resultado:number= (num1) + parseFloat(num2);
+        (document.getElementById('resultado') as HTMLElement).innerHTML=resultado.toString();
+    }
+*/
 //PRACTICA GENERAL DE LA SINTAXIS
 /*let num1:string|number|number[]=[1,2,4];
 //let lista[]:string|boolean|number|string[]=['hola',7,'ts',8,'ast',9];
@@ -13,32 +14,41 @@ num1.forEach(e => {
     console.log(" numero 1: " + e + " numero 2: " + num1 + " = " + num2 );
 });
 */
-/*let lista: number[] = [1,2,3,4,5,6,7,8,9,10];
-let multiplicacion = 1;
-let listaPrimos: number[] = [];
-
-function esPrimo(numero: number): boolean {
-  if (numero <= 1) return false;
-
-  for (let i = 2; i < numero; i++) {
-    if (numero % i == 0) {
-      return false;
+function esPrimo(numero) {
+    if (numero <= 1)
+        return false;
+    for (var i = 2; i < numero; i++) {
+        if (numero % i == 0)
+            return false;
     }
-  }
-  return true;
+    return true;
 }
-
-lista.forEach(e => {
-  multiplicacion = multiplicacion * e;
-
-  if (esPrimo(e)) {
-    console.log("el numero: " + e + " es primo");
-    listaPrimos.push(e);
-  } else {
-    console.log("el numero: " + e + " NO es primo");
-  }
-});
-
-console.log("La multiplicación es: " + multiplicacion);
-console.log("Sublista: " + listaPrimos);
-*/ 
+function Lista() {
+    var inputElement = document.getElementById('num_lista');
+    var resMulti = document.getElementById('resMulti');
+    var resPrimos = document.getElementById('resPrimos');
+    var detallePrimos = document.getElementById('detallePrimos');
+    if (!inputElement || !resMulti || !resPrimos || !detallePrimos)
+        return;
+    var textoInput = inputElement.value;
+    var lista = textoInput.split(',').filter(function (x) { return x.trim() !== ""; }).map(function (e) { return Number(e.trim()); });
+    var multiplicacion = lista.length > 0 ? 1 : 0;
+    var listaPrimos = [];
+    var listadoTexto = ""; // Aquí guardamos el texto simple
+    lista.forEach(function (e) {
+        if (isNaN(e))
+            return;
+        multiplicacion = multiplicacion * e;
+        if (esPrimo(e)) {
+            listaPrimos.push(e);
+            listadoTexto += "numero ".concat(e, " es primo\n");
+        }
+        else {
+            listadoTexto += "numero ".concat(e, " no es primo\n");
+        }
+    });
+    // Insertar resultados
+    resMulti.innerText = multiplicacion.toString();
+    resPrimos.innerText = "[" + listaPrimos.join(", ") + "]";
+    detallePrimos.innerText = listadoTexto; // Texto puro con saltos de línea
+}
